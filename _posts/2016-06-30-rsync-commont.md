@@ -2,6 +2,8 @@
 layout: post
 title: 关于rsync的使用
 category: Linux
+description:
+主要分为服务端与客户端，服务端主要是用来存储需要备份的数据，客户端则为主动提供需要备份的数据，交给服务端。
 ---
 
 ### 关于rsync的使用小结
