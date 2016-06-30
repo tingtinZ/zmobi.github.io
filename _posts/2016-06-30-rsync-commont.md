@@ -1,6 +1,7 @@
 ---
-layout: blog
+layout: post
 title: 关于rsync的使用
+category: Linux
 ---
 
 ### 关于rsync的使用小结
