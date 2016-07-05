@@ -1,6 +1,6 @@
 ---
 layout: post
-categories: Linux
+categories: linux
 description: 本文承接文章**多人使用同一系统用户的操作记录**的后续操作
 ---
 
