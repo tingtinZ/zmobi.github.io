@@ -1,15 +1,16 @@
+baseurl: /
 markdown: kramdown
 highlighter: rouge
 permalink: blog/:year/:month/:day/:title.html
+auto: true
 paginate: 6
 paginate_path: page/:num
-gems: [jekyll-paginate]
 
 blog:
-    name:                                                # 博客名称
+    name: Zmobi                                          # 博客名称
     description:                                         # 博客描述
     title:                                               # 网页标题
-    url:                                                 # 博客地址
+    url: https://zmobi.github.io                         # 博客地址
     duoshuo:                                             # 多说ID
     tongji:                                              # 百度统计ID
     qiniu:                                               # 七牛云地址
@@ -17,8 +18,8 @@ author:
     name:                                                # 作者名称
     email:                                               # 邮箱地址
     weibo:                                               # 微博地址
-    github:                                              # GitHub地址
-    logo:                                                # logo地址
+    github: https://github.com/zmobi                     # GitHub地址
+    logo: /res/img/me.jpg                                # logo地址
     douban:
-        name:                                            # 豆瓣地址名称
-        key:                                             # 豆瓣API Key
+        name: thekingdom@126.com                         # 豆瓣地址名称
+        key: /people/:name                               # 豆瓣API Key
