@@ -29,6 +29,6 @@ sudo apt-get install curl wget
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # 修改.zshrc配置
-sed -i 's/robbyrussell/candy-kingdom/' ~/.zshrc
+sed -i '/ZSH_THEME/ s/robbyrussell/candy-kingdom/' ~/.zshrc
 echo '[[ -s /etc/profile.d/autojump.zsh ]] && . /etc/profile.d/autojump.zsh' >> ~/.zshrc
 ```
