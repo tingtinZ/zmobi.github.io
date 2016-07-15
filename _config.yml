@@ -5,6 +5,7 @@ permalink: /:year/:month/:day/:title.html
 auto: true
 paginate: 6
 paginate_path: page/:num
+excerpt_separator: '<!-- more -->'
 
 blog:
     name: Zmobi                                          # 博客名称
