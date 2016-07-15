@@ -2,5 +2,5 @@
 
 这是我的github page博客
 
-如果想了解博客的设置，可阅读*WIKI页*
-[设置WIKI说明](https://github.com/zmobi/zmobi.github.io/wiki)
+[*评论系统设置*](https://github.com/zmobi/zmobi.github.io/wiki/duoshuo-and-disqus) 
+[*jekyll博客目录结构说明*](https://github.com/zmobi/zmobi.github.io/wiki/jekyll-blog-structure)
