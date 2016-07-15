@@ -1,6 +1,9 @@
 ---
 layout: post
 categories: svn
+title: SVN绑定RTX发送即时消息
+description: SVN绑定RTX通过HTTP发送即时消息，当SVN有提交时，马上发送RTX弹窗消息通知指定人群
+keywords: svn, rtx, http, hooks
 ---
 
 反复琢磨了好几次，终究是想不出一个简洁又能清晰表达立意的标题，瞧我这语文水平，啧啧。公司有同学在网上看到类似的功能：*当某人在SVN提交更新后，RTX立即发送弹窗通知指定人群*！ 经过一个下午时间的调研，把整个流程理顺并且实现了该功能，关键点在于两个：**SVN的hooks** ，**RTX的http消息** 

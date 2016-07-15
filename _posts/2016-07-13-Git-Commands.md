@@ -2,6 +2,8 @@
 layout: post
 categories: git
 description: Git常用命令
+keywords: git, git设置
+title: Git常用命令
 ---
 
 由于Git命令不是太常用，常规的就那么几条，为了方便自己的使用查找，遂整理出来。
