@@ -99,17 +99,23 @@ path = os.path.join(MainPath, 'CangKu')
 name = os.popen('svnlook author '+str(path)).read().rstrip('\n')
 # 获取SVN提交的版本号
 ver = os.popen('svnlook youngest '+str(path)).read().rstrip('\n')
+# 获取SVN提交时的路径名
+dirs = os.popen('svnlook changed '+str(path)).read().rstrip('\n')
 # 获取SVN提交时所写的注释
-log = os.popen('svnlook log '+str(path)).read().rstrip(' ').rstrip('\n')
+log = os.popen('svnlook log '+str(path)).read().replace(' ','').rstrip('\n')
 # 中文注释使用chardet模块，调用chardet.detect(log)才最终确认是gb2312编码
 log = log.decode('gb2312').encode('utf-8')
 
+# 发给所有人则直接令 receiver = all即可
 receiver = 'rtx_user_name'
-# msg的内容不能有空格或者其他符号，不然显示不全，因此排版略蛋痛 【+】 为显示空格
-msg = '(%s)向仓库CangKu【+】提交了版本号为[%s]的更新【+】内容是：%s' %(name, ver, log)
-url = 'http://rtx_server_ip:8012/SendNotify.cgi?delaytime=4000&receiver=%s&msg="%s"' %(receiver, msg)
-# 使用urllib2.urlopen方法来模拟浏览器访问
-urllib2.urlopen(url)
+# 因SVN Server上每个仓库只显示一个层级，若想指定下属的某个目录更新时才触发消息通知
+# 则可以添加条件判断路径名
+if 'keyword' in dirs:
+    # msg的内容不能有空格或者其他符号，不然显示不全，因此排版略蛋痛
+    msg = '【%s】向仓库【release/win】提交了【版本号：%s】的更新【%s】' %(name, ver, log)
+    url = 'http://rtx_server_ip:8012/SendNotify.cgi?delaytime=4000&receiver=%s&msg="%s"' %(receiver, msg)
+    # 使用urllib2.urlopen方法来模拟浏览器访问
+    urllib2.urlopen(url)
 ```
 
 为脚本命个名字吧，再添加到`post-commit.bat` 文件中即可。
