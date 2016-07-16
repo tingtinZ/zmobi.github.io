@@ -8,7 +8,7 @@ paginate_path: page/:num
 excerpt_separator: '<!-- more -->'
 
 blog:
-    name: Zmobi                                          # 博客名称
+    name: zshmobi                                          # 博客名称
     description:                                         # 博客描述
     title:                                               # 网页标题
     url: https://zmobi.github.io                         # 博客地址
