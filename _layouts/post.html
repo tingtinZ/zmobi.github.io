@@ -31,4 +31,11 @@ post: true
 <span class="pagination-item older">下一篇&nbsp;<i class="fa fa-chain-broken"></i></span>
 {% endif %}
 </div>
-{% if page.duoshuo != false %}{% include duoshuo.html %}{% endif %}
+<!-- 使用多说评论-->
+<!-- {% if page.duoshuo != false %}{% include duoshuo.html %}{% endif %} -->
+
+<!-- 使用disqus评论-->
+{% if page.disqus != false %}
+  {% include disqus.html %}
+    <script id="dsq-count-scr" src="//zshmobi.disqus.com/count.js" async></script>
+{% endif %}
