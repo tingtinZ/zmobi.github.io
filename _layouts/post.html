@@ -32,10 +32,10 @@ post: true
 {% endif %}
 </div>
 <!-- 使用多说评论-->
-<!-- {% if page.duoshuo != false %}{% include duoshuo.html %}{% endif %} -->
+{% if page.duoshuo != false %}{% include duoshuo.html %}{% endif %} 
 
-<!-- 使用disqus评论-->
+<!-- 使用disqus评论
 {% if page.disqus != false %}
   {% include disqus.html %}
     <script id="dsq-count-scr" src="//zshmobi.disqus.com/count.js" async></script>
-{% endif %}
+{% endif %}  -->
