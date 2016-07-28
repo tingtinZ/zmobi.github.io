@@ -92,6 +92,7 @@ Path to Git executable:  选中git.exe的路径
 4. 支持PEP8代码规范检测
 5. git日志内容支持友好地阅读
 6. 内建`python Console` 和`terminal` 「win下则是cmd」
+7. 内建快速查询手册
 
 > [msysgit官网](https://git-for-windows.github.io)
 >
