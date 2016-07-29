@@ -8,7 +8,7 @@ keywords: pycharm, windows, win10, git, github, markdown
 
 ## 缘由
 
-对于编辑器圣战这玩意，我估计得靠边站，没啥话语权。本人奉行简单即可，拿来即用，别整那些没用的「明显自己不懂罢了」。一周之前安装的pycharm，在win10中运行好几次后，便没了使用的冲动，主要是嫌弃其启动慢，过于臃肿。鉴于windows系统的尿性，在该环境学习python非常蛋疼，加之熟悉了类unix系统良好的操作特性，特别是git在的用户体验非常良好，无奈，只能在WIN10中装个虚拟机跑Ubuntu来学习。虽说直接在服务器中修改代码能够胜任，但vim模式下，修改内容过多时，不免隐隐作痛。直接在ubuntu中装个sublime text 2吧，却又不支持中文，网上有解决方案，可老是折腾来去的，徒增烦恼，并且浪费时间。霎那间，macbook在心中争得首位，其次ubuntu，最后才是瘟到死，啧啧。
+对于编辑器圣战这玩意，我估计得靠边站，没啥话语权。本人奉行简单即可，拿来即用，别整那些没用的「明显自己不懂罢了」。一周之前安装的pycharm，在win10中运行好几次后，便没了使用的冲动，主要是嫌弃其启动慢，过于臃肿。鉴于windows系统的尿性，在该环境学习python非常蛋疼，加之熟悉了类unix系统良好的操作特性，特别是git，无奈，只能在WIN10中装个虚拟机跑Ubuntu来学习。虽说直接在服务器中修改代码能够胜任，但vim模式下，修改内容过多时，不免隐隐作痛。直接在ubuntu中装个sublime text 2吧，却又不支持中文，网上有解决方案，可老是折腾来去的，徒增烦恼，并且浪费时间。霎那间，macbook在心中争得首位，其次ubuntu，最后才是瘟到死，啧啧。
 
 <!-- more -->
 
@@ -27,7 +27,7 @@ pycharm完美地解决了我心中的顾虑。支持github与git的同步，可�
 安装完毕后，在桌面右键进入 git bash界面
 
 ```shell
-# 命令查看当前目录
+# 查看当前目录命令
 $ pwd
 
 # 进入git用户主目录，通常是windows用户的主目录
@@ -40,6 +40,7 @@ $ mkdir -pv .ssh
 
 # 生成ssh key，如果你不能执行下述命令
 # 请先安装cygwin；-C 是添加KEY的注释，方便管理Key
+# 之后会问你是否设置密码，跳过即可
 $ ssh-keygen -t rsa -C "name@servername"
 ```
 
@@ -79,6 +80,16 @@ Path to Git executable:  选中git.exe的路径
 #### VCS.XML文件
 
 在Pycharm中管理git仓库,则会在`Project`窗口下第一个仓库目录下建立`.idea/vcs.xml`文件, pycharm全靠它来管理代码变更,因此要事先在仓库的**.gitignore**文件中添加过滤*.idea*目录。
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <!-- 映射到哪个目录 使用什么版本管理工具 -->
+    <mapping directory="E:\wtuse" vcs="Git" />
+  </component>
+</project>
+```
 
 ## 小结
 
@@ -86,13 +97,13 @@ Path to Git executable:  选中git.exe的路径
 
 最后，说说Pycharm的好处吧：
 
-1. 支持内建包管理
+1. 支持python包管理
 2. 支持多种文档测试
-3. 代码操作快捷「这个有要有进阶后才行」
+3. 代码操作快捷
 4. 支持PEP8代码规范检测
 5. git日志内容支持友好地阅读
-6. 内建`python Console` 和`terminal` 「win下则是cmd」
-7. 内建快速查询手册
+6. 自带`python Console` 和`terminal` 「win下则是cmd」
+7. 自带快速查询手册
 
 > [msysgit官网](https://git-for-windows.github.io)
 >
