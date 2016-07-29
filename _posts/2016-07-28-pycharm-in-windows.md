@@ -80,6 +80,7 @@ Path to Git executable:  选中git.exe的路径
 #### VCS.XML文件
 
 在Pycharm中管理git仓库,则会在`Project`窗口下第一个仓库目录下建立`.idea/vcs.xml`文件, pycharm全靠它来管理代码变更,因此要事先在仓库的**.gitignore**文件中添加过滤*.idea*目录。
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
