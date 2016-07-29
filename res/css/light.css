@@ -432,7 +432,8 @@ blockquote {
 code {
 	font-family:Monaco,Consolas,Menlo,"Andale Mono","Courier New","Ubuntu Mono",Arial,"Microsoft YaHei","Hiragino Sans GB",sans-serif;
 	font-size:17px;
-	background:rgba(235,245,245,0.75);
+	/* background:rgba(235,245,245,0.75); */
+	background:#94DED2;
 	color:#494949;
 	margin:0 2px;
 	padding:0 4px;
