@@ -170,7 +170,7 @@ def GetInfo(line):
         except KeyError:
             print 'no accout that named by %s' % Name
 
-        NewMsg = '【%s】释放了[RTX弹窗技能]召唤了你关于【%s】的内容' \
+        NewMsg = '【%s】召唤了你关于【%s】' \
                 %(SenderName, msg.replace(' ', ''))  #去除空格，否则消息显示不完整
         # 在窗口中打印消息记录，好方便查看究竟都发送了哪些召唤请求
         print '%s %s @ %s : %s' % (sendtm, sender, sendto, msg.replace(' ', ''))   
@@ -190,10 +190,16 @@ def Main():
         if html.status_code == 200:
             content = html.content
             items = re.findall('\r\nTime=(.*?)\r\nSender=(.*?)\r\nReceivers=(.*?)\r\nMsg=(.*?)\r\n', content)
-            for num in range(5):   # 按时间发生的先后顺序，读取最后5条消息记录
-                item = num-5
-                if '@' in items[item][3] and items[item][0] not in TT:
-                    GetInfo(items[item])
+            if len(items) < 5:
+                total = len(items)
+            else:
+                total = 5
+            for num in range(total):
+                num = num-total
+                if '@' in items[num][3] \
+                    and '【图片' not in items[num][3].decode('gb2312').encode('utf-8') \
+                    and items[num][0] not in TT :
+                    GetInfo(items[num])
         elif html.status_code == 404:
             # 当天的聊天记录还未生成
             pass
