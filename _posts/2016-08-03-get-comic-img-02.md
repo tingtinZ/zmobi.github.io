@@ -96,16 +96,16 @@ def getchapter(url):
 
 
 def geturl(url, info):
-    for key in info:
+    for chapter in info:
         # 添加判断条件，可自主控制下载的章节
-        if key >= 1:
+        if chapter >= 1:
             # 指定phantomjs所在路径
             driver = webdriver.PhantomJS(executable_path='/usr/local/bin/phantomjs')
-            if key >= 10:
-                url = '%s%03d/' % (url, key)
+            if chapter >= 10:
+                url = '%s%03d/' % (url, chapter)
             else:
-                url = '%s%02d/' % (url, key)
-            for num in range(1, info[key]+1):
+                url = '%s%02d/' % (url, chapter)
+            for num in range(1, info[chapter]+1):
                 # 拼装成完整的单个章节每页的URL
                 page_url = '%s?p=%d' % (url, num)
                 # 关键实现之处
@@ -118,15 +118,15 @@ def geturl(url, info):
                 # 图片后缀名
                 suffix = img_url.split('.')[-1]
                 # 生成图片文件的名字
-                img_name = '%02d-%02d.%s' % (key, num, suffix)
-                print '正在下载 第%d章 第%d页' % (key, num)
+                img_name = '%02d-%02d.%s' % (chapter, num, suffix)
+                print '正在下载 第%d章 第%d页' % (chapter, num)
                 w2f(img_url, img_name)
                 time.sleep(randint(10, 24))
             driver.close()
 
 
 def w2f(real_url, filename):
-    directory = '/home/jeff/tomorrow_edge'
+    directory = '下载到哪个目录'
     full_name = path.join(directory, filename)
     if path.isfile(full_name):
         pass
@@ -145,6 +145,6 @@ if __name__ == '__main__':
     geturl(link, chapter_pages)
 ```
 
-通过上述代码，本人成功下载完整的章节，`存在问题`有，使用`driver.get(url)`时，偶尔会等待好久，卡死了，只能重新开始，暂时找到解决方法，虽然机率较小。在*windows*上使用`FSCapture` 把所有图片转成*PDF*格式，可以爽了。下载的过程中，勿盲目求快，否则过度占用他人资源，可耻也；这也是加入随机等待的原因。
+通过上述代码，本人成功下载完整的章节，`存在问题`有，使用`driver.get(url)`时，偶尔会等待好久，卡死了，只能重新开始，暂时没找到解决方法，虽然机率较小。在*windows*上使用`FSCapture` 把所有图片转成*PDF*格式，可以爽了。下载的过程中，勿盲目求快，否则过度占用他人资源，可耻也；这也是加入随机等待的原因。
 
 至于`Selenium`和`PhantomJS`的学习过程，有空再写个总结。并非使用上述技能就万事大吉了，仍然存在某些漫画网站，即便成功获取图片真实URL也无法下载，可能与*Cookies* 和 *Session* 的处理有关，以后再慢慢补充。
