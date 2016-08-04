@@ -102,12 +102,12 @@ def geturl(url, info):
             # 指定phantomjs所在路径
             driver = webdriver.PhantomJS(executable_path='/usr/local/bin/phantomjs')
             if chapter >= 10:
-                url = '%s%03d/' % (url, chapter)
+                chapter_url = '%s%03d/' % (url, chapter)
             else:
-                url = '%s%02d/' % (url, chapter)
+                chapter_url = '%s%02d/' % (url, chapter)
             for num in range(1, info[chapter]+1):
                 # 拼装成完整的单个章节每页的URL
-                page_url = '%s?p=%d' % (url, num)
+                page_url = '%s?p=%d' % (chapter_url, num)
                 # 关键实现之处
                 driver.get(page_url)
                 html = driver.page_source
