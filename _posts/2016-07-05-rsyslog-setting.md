@@ -1,6 +1,6 @@
 ---
 layout: post
-categories: linux
+categories: Linux
 description: 使用rsyslog记录bash的操作日志
 title: Rsyslog记录用户的所有命令
 keywords: rsyslog, linux

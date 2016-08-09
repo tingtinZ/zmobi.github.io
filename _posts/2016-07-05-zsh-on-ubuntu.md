@@ -1,6 +1,6 @@
 ---
 layout: post
-categories: linux
+categories: Linux
 description: ZSH在UBUNTU上的配置 
 title: linux上布署ZSH脚本
 keywords: zsh, ubuntu
