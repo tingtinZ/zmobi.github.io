@@ -14,6 +14,8 @@ description: 如何用Jekyll+Markdown来写文章呢？
 争取早日把内容发布到属于自己的github上。
 ```
 
+<!-- more -->
+
 文件名必须按照以下格式来命令
 
 ```txt
