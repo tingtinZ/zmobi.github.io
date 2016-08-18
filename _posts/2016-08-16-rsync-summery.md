@@ -8,6 +8,8 @@ keywords: linux, rsync
 
 主要分为服务端与客户端，服务端主要是用来存储需要备份的数据，客户端则为主动提供需要备份的数据，交给服务端。
 
+<!-- more -->
+
 **rsync server**端主要设定下列3个选项
 
 - 规划建立备份的目录
@@ -106,10 +108,11 @@ rsync -avLu 111/ --exclude=“23” /tmp/322/
 rsync -av --include '*/' --exclude '*' source-dir dest-dir
 
 # 先备份，再同步
-rsync -ab –backup-dir=/data/backup/随机目录 –suffix=后缀 ./ /tmp/django/
+rsync -ab –-backup-dir=/data/backup/指定目录 –-suffix=后缀 ./ /tmp/django/
 # -b代表先备份，再同步
-# –backup-dir=/data/web/minggame/backup/随机目录 指定备份的目录，如果随机目录不存在，rsync会自动创建
-# –suffix=后缀指定备份文件名的后缀，因为前面有指定备份的目录，这个就没有必要了
+# -–backup-dir=/data/backup/指定目录，如果目录不存在，rsync会自动创建目录
+# -–suffix=后缀指定备份文件名的后缀
+# 只有当目标文件与待推送文件不同时，备份机制才生效
 ```
 
 #### Rsync计划任务的中备份脚本
