@@ -96,6 +96,13 @@ select * from rtx;
 
 -- 显示查询结果的格式 「默认是list, 选column则为Mysql的格式」
 .mode [list | html | column | csv ]
+
+-- 导入数据到表格
+-- 01 从mysql中select * from table into outfile 'xxxx.txt'
+-- 02 把xxxx.txt中的制表符换成,号
+.separator ","    
+-- 03 把xxxx.txt文件放在sqlite文件放在同一目录中
+.import xxxx.txt table_name
 ```
 
 ## Python操作SQLite
