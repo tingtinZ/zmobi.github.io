@@ -22,4 +22,14 @@ python manage.py migrate
 ```
 
 
+## 修改日期显示格式
+
+```shell
+# 修改setting.py的配置
+USE_L10N = False
+DATETIME_FORMAT = 'Y-m-d H:i:s'
+DATE_FORMAT = 'Y-m-d'
+```
+
+
 此法仅支持*django 1.9.5* 以上版本
