@@ -29,7 +29,7 @@ make install
 
 # 替换原换文件，并解决Yum依赖2.6.6的问题
 mv /usr/bin/python /usr/bin/python2.6.6
-mv /usr/local/bin/python2.7 /usr/bin/python
+ln -s /usr/local/bin/python2.7 /usr/bin/python
 sed -i 's/python/python2\.6\.6/g' /usr/bin/yum
 ```
 
@@ -39,9 +39,7 @@ sed -i 's/python/python2\.6\.6/g' /usr/bin/yum
 
 ```shell
 # easy_install
-wget https://pypi.python.org/packages/2.7/s/setuptools/setuptools\
--0.6c11-py2.7.egg  --no-check-certificate
-sh etuptools-0.6c11-py2.7.egg
+wget https://bootstrap.pypa.io/ez_setup.py -O - | python
 
 # pip
 wget https://pypi.python.org/packages/e7/a8/7556133689add8d1a54c0b14a\
