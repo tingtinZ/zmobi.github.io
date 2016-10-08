@@ -11,7 +11,7 @@ keywords: ubuntu, 工作机, 日常使用, 开发使用
 
 ### 友情提示
  .deb包无法直接在图形界面安装，使用命令安装
- 
+
 ```shell
  dpkg -i your_package_name.deb
  # 部分软件缺少信赖关系，系统会提示你解决方法
@@ -21,6 +21,19 @@ keywords: ubuntu, 工作机, 日常使用, 开发使用
 ### 远程
 1. teamviewer支持linux版本
 2. ubuntu系统自带 remmina远程桌面客户端，支持访问windows系统
+
+### SSH-KEY 密码管理
+
+本机上的**SSH-Key** 管理 ，特指key有密码的情况，方法有两种，均是在*.bashrc* 或者 *.zshrc* 中操作
+
+```shell
+# 方法一
+apt install keychain
+eval `keychain --eval id_rsa`
+
+# 方法二
+eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_rsa
+```
 
 ### VPN翻墙
 实测自购的VPN，以PPTP方式登录正常
@@ -41,7 +54,7 @@ sudo perl securecrt_linux_crack.pl /usr/bin/SecureCRT
 暂时使用自带的LibreOffice，如果实在不好用，再考虑换wps for linux吧
 
 ### 密码管理keepass
-中文字体显示异常，但不影响日常使用
+中文字体显示异常，安装完毕之后，需要进入软件设置，选择google的开源字体: `思源体 - noto sans`
 
 ```shell
 sudo apt-add-repository ppa:jtaylor/keepass
@@ -61,7 +74,26 @@ cd /opt && tar -xf pycharm-community-2016.2.tar.gz
 sudo ln -s /opt/pycharm-community-2016.2/bin/pycharm.sh /usr/bin/pycharm
 ```
 
+### Typora
+
+從來不看更新日志的在下，某次心血來潮掃了一下，不得了啊～**Typora** 居然支持 *linux* 了，老子那個激動啊。個人比較喜歡的一款 *markdown* 軟件，三打操作系統平臺均支持。
+
+```shell
+# 額外的選項，但強烈建議添加
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
+
+# 添加軟件源
+sudo add-apt-repository 'deb https://typora.io linux/'
+sudo apt-get update
+
+# 安裝 typora
+sudo apt-get install typora
+```
+
+
+
 ### sublime text2
+
 安装这货真心折腾啊，重点要解决中文输入法的问题
 
 ```shell
