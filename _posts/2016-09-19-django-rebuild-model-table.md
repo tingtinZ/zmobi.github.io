@@ -16,6 +16,9 @@ rm -rf your_app_name/migrations
 # 删除数据库中相关表的记录
 DELETE FROM django_migrations WHERE app = 'your_app_name'
 
+# 删除应用中创建过的表
+drop table your_app_tables
+
 python manage.py makemigrations your_app_name
 
 python manage.py migrate
