@@ -107,8 +107,17 @@ cd sublime-text-imfix
 # 我用的是2，默认的是3，因此做小小修改
 sed -i 's/sublime_text/sublime_text2/g' sublime-imfix
 sed -i 's/sublime_text/sublime_text2/g' src/subl
-./sublime-imfix
 # 执行完毕后，会解锁一个我之前很喜欢的QQ五笔皮肤
+./sublime-imfix
+# sublime用户自定义配置
+{
+    "font_face": "Monospace Regular",
+    "font_size": 16,
+    "highlight_line": true,
+    "tab_size": 4,
+    "translate_tabs_to_spaces": true,
+    "word_wrap": true
+}
 ```
 
 ### QQ与RTX
