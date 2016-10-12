@@ -87,6 +87,7 @@ select * from rtx;
 
 -- 导出数据库到SQL文件
 .output [filename]
+.dump
 
 -- 从SQL文件导入数据库
 .read [filename]
@@ -103,10 +104,6 @@ select * from rtx;
 .separator ","    
 -- 03 把xxxx.txt文件放在sqlite文件放在同一目录中
 .import xxxx.txt table_name
-
--- 导出数据
-.output output.sql
-.dump
 ```
 
 ## Python操作SQLite
