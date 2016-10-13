@@ -111,7 +111,7 @@ sed -i 's/sublime_text/sublime_text2/g' src/subl
 ./sublime-imfix
 # sublime用户自定义配置
 {
-    "font_face": "Monospace Regular",
+    "font_face": "Ubuntu Mono",
     "font_size": 16,
     "highlight_line": true,
     "tab_size": 4,
