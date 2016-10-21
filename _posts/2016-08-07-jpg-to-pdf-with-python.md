@@ -23,7 +23,7 @@ keywords: python, jpg, pdf, reportlab, jpg convert pdf, JPG转PDF
 # -*- coding: utf-8 -*-
 
 from reportlab.lib.pagesizes import letter
-from reportlab.platypus import SimpleDocTemplate, Paragragh, Image, PageBreak
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Image, PageBreak
 from reportlab.lib.units import inch
 import commands
 
