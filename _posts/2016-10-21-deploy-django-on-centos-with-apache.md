@@ -10,14 +10,14 @@ keywords: django, centos, apache2.2, wsgi, 布署django
 
 工作需要，必须得在 *CentOS* 中布署 *Django* ，并且使用 *apache* ，以 `mod_wsgi`串连着使用。如果是使用 *Nginx* ，还得更加麻烦，使用的则是 *uwsgi* 。之前写的这个教程，仅仅是成功安装 *django* ，并且能够使用内置的 **开发服务器** 来调试使用。现在无非就是借助*Apache* 嘛，应该也很简单吧……果然老子还是太年轻了……天朝内现有的教程文章，要么过于简(chao)洁(xi)，完全没详细的原理讲解；要么是版本太久，根本无法使用，哎……
 
+<!-- more -->
+
 最后，历经一个下午的折腾，终于让我成功解决问题了，难点在于 
 
 1. Python 与 Mod_wsgi的关联
 2. Apache识别到django项目虚拟环境中的wsgi.py
 
 好了， 别的不扯，上干货。
-
-<!-- more -->
 
 # 版本信息
 
