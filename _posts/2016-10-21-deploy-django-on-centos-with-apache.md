@@ -163,9 +163,9 @@ WSGIProcessGroup mysite
 </VirtualHost>
 
 ## CentOS 6.8 + apache 2.2 中的虚拟主机配置
-WSGIScriptAlias / /data/wtweb/web/web/wsgi.py
 WSGIPythonPath /data/wtweb/:/data/wtweb/lib/python2.7/site-packages
 <VirtualHost *:80>
+WSGIScriptAlias / /data/wtweb/web/web/wsgi.py
 ...
 </VirtualHost>
 ```
@@ -213,7 +213,6 @@ sys.path.append(r'/data/mysite/web')
 
 ```shell
 cat > /etc/httpd/conf.d/mysite.conf << EOF
-WSGIScriptAlias / /data/mysite/web/web/wsgi.py
 WSGIPythonPath /data/mysite/:/data/mysite/lib/python2.7/site-packages
 <VirtualHost *:80>
     ServerName mysite.test.com
@@ -224,6 +223,8 @@ WSGIPythonPath /data/mysite/:/data/mysite/lib/python2.7/site-packages
     Alias /media/ /data/mysite/web/media/
     Alias /static/ /data/mysite/web/collected_static/
 
+    # WSGIScriptAlias 一定要放在virtualhost内，不然默认主页无法打开
+    WSGIScriptAlias / /data/mysite/web/web/wsgi.py
     <Directory "/data/mysite/web/web">
         <Files wsgi.py>
         Order deny,allow
