@@ -60,7 +60,7 @@ class DetailAdmin(admin.ModelAdmin):
 
 ```python
 # 在DetailAdmin下添加
-search_field = ['num__name']
+search_fields = ['num__name']
 ```
 
 ## list_filter
@@ -84,3 +84,5 @@ def __unicode__(self):
     return self.xxxx # 此处返回你想要的字段
 # 该字段会默认为引用外键时的显示默认值
 ```
+
+注意，*list_display* 所展示的字段必须是在数据库接口语句中，能够真正被查询得到的；而 *search_fields* 与 *list_filter* 则是以私有函数定义的。使用时注意区分两者。
