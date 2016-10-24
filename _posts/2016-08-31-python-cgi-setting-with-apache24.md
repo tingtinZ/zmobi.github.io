@@ -1,6 +1,6 @@
 ---
 layout: post
-category: Python
+category: ['Python', 'Apache']
 title: Apache2.4配置Python CGI
 description: 在apache2.4中配置python cgi，包括windows、macos和linux三大系统的配置说明
 keywords: python, CGI, apache2.4, macos, osx, linux, windows

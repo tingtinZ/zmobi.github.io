@@ -1,7 +1,7 @@
 ---
 layout: post
 title: django重建表格
-category: Django
+category: ['Django', 'Apache']
 description: 重建django中原有设定的model表格
 keywords: django, rebuild, 重建表格
 ---
