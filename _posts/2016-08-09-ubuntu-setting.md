@@ -121,7 +121,9 @@ sed -i 's/sublime_text/sublime_text2/g' src/subl
 ```
 
 ### QQ与RTX
-这两个货暂时无解，网上应该有wine方式的安装，暂时不想折腾，于是装个virutalbox虚拟机，装个WIN7，就挂着QQ和RTX。没办法啊，工作要用RTX。
+~~这两个货暂时无解，网上应该有wine方式的安装，暂时不想折腾，于是装个virutalbox虚拟机，装个WIN7，就挂着QQ和RTX。没办法啊，工作要用RTX。~~
+
+参考[ubuntu安装qq与rtx]({{ site.url }}/2016/11/09/ubuntu-install-qq-and-rtx)
 
 ## 尾巴
 
