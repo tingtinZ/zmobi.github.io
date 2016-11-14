@@ -49,3 +49,5 @@ msoobe.exe
 运行 *sysprep* 报错
 
 执行 *sysprep.exe* 时，报错，无法继续下去。网上说是要把服务 *windows media player sharing* 禁用掉，但我禁用后仍然无效，据说 *sysprep* 执行是有次数限制，不知是否为这个限制所致。
+
+`P.S注意` ： WIN10使用此法无效，亲测
