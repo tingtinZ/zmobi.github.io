@@ -51,7 +51,9 @@ sed -i 's/python/python2\.6\.6/g' /usr/bin/yum
 
 # easy_install 必须先安装它，再安装pip
 cd /usr/src
-wget https://pypi.python.org/packages/b5/9a/9ce1a45a076f977cb870bf0c9370347c9371b0e9aa9ca9859196ce58afda/setuptools-28.6.1.tar.gz#md5=b8df391e7532b544e16e1e4cc35a90e5
+wget https://pypi.python.org/packages/b5/9a/9ce1a45a076f977cb870bf0c937\
+0347c9371b0e9aa9ca9859196ce58afda/setuptools-28.6.1.tar.gz#\
+md5=b8df391e7532b544e16e1e4cc35a90e5
 tar -xf setuptools-28.6.1.tar.gz
 cd setuptools-28.6.1
 python setup.py install
