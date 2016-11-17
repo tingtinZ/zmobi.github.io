@@ -8,7 +8,7 @@ keywords: django, centos, apache2.2, wsgi, 布署django
 
 ~~在ubuntu下安装django非常方便，直接跑apt命令即可。这要换到centos环境下就略为蛋疼了。只能以源码方式安装，并且安装前还得注意环境的配置。~~
 
-工作需要，必须得在 *CentOS* 中布署 *Django* ，并且使用 *apache* ，以 `mod_wsgi`串连着使用。如果是使用 *Nginx* ，还得更加麻烦，使用的则是 *uwsgi* 。之前写的这个教程，仅仅是成功安装 *django* ，并且能够使用内置的 **开发服务器** 来调试使用。现在无非就是借助*Apache* 嘛，应该也很简单吧……果然老子还是太年轻了……天朝内现有的教程文章，要么过于简(chao)洁(xi)，完全没详细的原理讲解；要么是版本太久，根本无法使用，哎……
+工作需要，必须得在 *CentOS* 中布署 *Django* ，并且使用 *apache* ，以 `mod_wsgi`串连着使用。如果是使用 *Nginx* ，还得更加麻烦，使用的则是 *uwsgi* 。之前写的这个教程，仅仅是成功安装 *django* ，并且能够使用内置的 **开发服务器** 来调试使用。现在无非就是借助*Apache* 嘛，应该也很简单吧……果然老子还是太年轻了……天朝内现有的教程文章，要么过于简(chao)洁(xi)，完全没详细的原理讲解；要么是版本太旧，根本无法使用，哎……
 
 <!-- more -->
 
@@ -51,7 +51,9 @@ sed -i 's/python/python2\.6\.6/g' /usr/bin/yum
 
 # easy_install 必须先安装它，再安装pip
 cd /usr/src
-wget https://pypi.python.org/packages/b5/9a/9ce1a45a076f977cb870bf0c9370347c9371b0e9aa9ca9859196ce58afda/setuptools-28.6.1.tar.gz#md5=b8df391e7532b544e16e1e4cc35a90e5
+wget https://pypi.python.org/packages/b5/9a/9ce1a45a076f977cb870bf0c937\
+0347c9371b0e9aa9ca9859196ce58afda/setuptools-28.6.1.tar.gz#\
+md5=b8df391e7532b544e16e1e4cc35a90e5
 tar -xf setuptools-28.6.1.tar.gz
 cd setuptools-28.6.1
 python setup.py install
@@ -135,7 +137,7 @@ deactivate
 ```shell
 # 网上找的教程yum安装 Mod_wsgi
 yum install epel-release
-yum install mod_wsgi
+yum install mod-wsgi
 
 # 安装完毕后，/etc/http/conf.d/会多出个文件mod_wsgi.conf
 # 内容为；apache会自动加载
@@ -204,7 +206,8 @@ make && make install
 接下来，则是解决 `Apache如何识别django项目虚拟环境中的wsgi.py` 了。解决方式如下：
 
 ```shell
-# 在django项目的wsgi.py文件中添加这两句，让系统能够找到实际的django项目路径，这样才能找到项目的配置文件，此处为我项目的 web/web/setting.py
+# 在django项目的wsgi.py文件中添加这两句，让系统能够找到实际的django项目路径
+# 这样才能找到项目的配置文件，此处为我项目的 web/web/setting.py
 import sys
 sys.path.append(r'/data/mysite/web')
 ```
