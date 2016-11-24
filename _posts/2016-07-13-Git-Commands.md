@@ -80,7 +80,9 @@ git config --global alias.ci commit
 git config --global alias.br branch
 git config --global alias.last 'log -l' # 最后提交
 # 这个是大招
-git  config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+git  config --global alias.lg "log --color --graph \
+    --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset \
+    %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 .git/config  # 针对仓库的配置文件
 ~/.gitconfig  # 针对用户的配置文件
