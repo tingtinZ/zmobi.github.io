@@ -8,7 +8,7 @@ paginate_path: page/:num
 excerpt_separator: '<!-- more -->'
 
 blog:
-    name: zshmobi                                          # 博客名称
+    name: Jeff驿站                                          # 博客名称
     description:                                         # 博客描述
     title:                                               # 网页标题
     url: https://zmobi.github.io                         # 博客地址
@@ -16,6 +16,7 @@ blog:
     tongji:                                              # 百度统计ID
     qiniu:                                               # 七牛云地址
     google_analytics: UA-88258580-1                      # 谷歌统计
+    google_cse: 007073377861791415386:sewp18dkuu4
 author:
     name:                                                # 作者名称
     email:                                               # 邮箱地址

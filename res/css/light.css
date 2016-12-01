@@ -228,7 +228,19 @@ a:link {
 }
 #sub-nav a.rss:hover {
 	color:#4999E2;
-	background:#ef7522;
+	background:#ffeb00;
+	padding-left:2px;
+	padding-top:3px;
+}
+#sub-nav a.search {
+	color:#fff;
+	background:#FF7F50;
+	padding-left:2px;
+	padding-top:3px;
+}
+#sub-nav a.search:hover {
+	color:#4999E2;
+	background:#ffeb00;
 	padding-left:2px;
 	padding-top:3px;
 }

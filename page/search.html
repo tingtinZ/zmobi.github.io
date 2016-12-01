@@ -1,0 +1,21 @@
+---
+layout: blog
+title: 站内搜索
+---
+
+<h1>站内搜索</h1>
+
+<script>
+  (function() {
+    var cx = '{{ site.blog.google_cse }}';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:searchbox></gcse:searchbox>
+
+<gcse:searchresults></gcse:searchresults>
