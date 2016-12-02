@@ -1,6 +1,6 @@
 ---
 layout: post
-categories: git
+categories: Git
 description: Git常用命令
 keywords: git, git设置
 title: Git常用命令
