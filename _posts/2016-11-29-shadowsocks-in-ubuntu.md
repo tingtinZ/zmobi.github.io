@@ -223,3 +223,5 @@ https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt 。
 # 尾巴
 
 关于加密算法这块，我还特意找了好些文章来学习，原来还有新的 *chacha20* 算法，ss默认推荐的算法是 *aes-256-cfb* ，对 *rc4-md5* 算法普遍认为安全性太差，虽然效率上比较占优势。我在 *ea6300 v1* 路由器上，选择了默认算法，也没见效率有多低，待我有空测测观看 *youtube 1080p* 视频时看看如何。
+
+暂时还未在 *windows* 装客户端，平时很少用；*android* 的亦是如此。*IOS* 上推荐 `Wingy`，免费的噢，效果杠杠的。
