@@ -6,6 +6,7 @@ auto: true
 paginate: 6
 paginate_path: page/:num
 excerpt_separator: '<!-- more -->'
+gems: [jekyll-paginate]
 
 blog:
     name: Jeff驿站                                          # 博客名称
