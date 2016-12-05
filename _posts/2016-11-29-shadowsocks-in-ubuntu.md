@@ -79,6 +79,92 @@ sudo echo '	/usr/local/bin/ssserver -p 8388 \
 >> /etc/rc.local
 ```
 
+## 内核参数修改之网络优化
+
+主要是修改两个文件
+
+- /etc/sysctl.conf
+- /etc/security/limits.conf
+
+```shell
+sudo cat >> /etc/sysctl.conf << EOF
+# max open files
+fs.file-max = 51200
+# max read buffer
+net.core.rmem_max = 67108864
+# max write buffer
+net.core.wmem_max = 67108864
+# default read buffer
+net.core.rmem_default = 65536
+# default write buffer
+net.core.wmem_default = 65536
+# max processor input queue
+net.core.netdev_max_backlog = 4096
+# max backlog
+net.core.somaxconn = 4096
+# resist SYN flood attacks
+net.ipv4.tcp_syncookies = 1
+# reuse timewait sockets when safe
+net.ipv4.tcp_tw_reuse = 1
+# turn off fast timewait sockets recycling
+net.ipv4.tcp_tw_recycle = 0
+# short FIN timeout
+net.ipv4.tcp_fin_timeout = 30
+# short keepalive time
+net.ipv4.tcp_keepalive_time = 1200
+# outbound port range
+net.ipv4.ip_local_port_range = 10000 65000
+# max SYN backlog
+net.ipv4.tcp_max_syn_backlog = 4096
+# max timewait sockets held by system simultaneously
+net.ipv4.tcp_max_tw_buckets = 5000
+# turn on TCP Fast Open on both client and server side
+net.ipv4.tcp_fastopen = 3
+# TCP receive buffer
+net.ipv4.tcp_rmem = 4096 87380 67108864
+# TCP write buffer
+net.ipv4.tcp_wmem = 4096 65536 67108864
+# turn on path MTU discovery
+net.ipv4.tcp_mtu_probing = 1
+# for high-latency network 
+net.ipv4.tcp_congestion_control = hybla
+# for low-latency network, use cubic instead
+#net.ipv4.tcp_congestion_control = cubic
+EOF
+
+# 开启hybla算法
+/sbin/modprobe tcp_hybla
+
+# 令参数生效
+sudo sysctl -p
+
+# 增加文件大小限制
+cat >> /etc/security/limits.conf << EOF
+* soft nofile 51200
+* hard nofile 51200
+EOF
+
+ulimit -n 51200
+```
+
+设置完成后，重启 *shadowsocks* 服务即可。
+
+如果想要观看 *youtube 1080p* 视频的话，*cubic*仅最高支持 *720p*。
+
+```shell
+# 必须选hybla算法
+net.ipv4.tcp_congestion_control = hybla
+```
+
+查看系统当前支持的算法有哪些
+
+```shell
+# 执行
+sudo sysctl net.ipv4.tcp_available_congestion_control
+```
+
+返回的结果中，如果有 *hybla* ，则证明支持该算法；否则，只能将就着看 *720p*的吧。
+
 # 客户端使用
 
 客户端 *ubuntu* 使用时则非常简单，设置同样的配置文件`/etc/shadowsocks.json` ，前提要安装的软件也给装上，两边的配置文件要一致噢。区别是启动的命令不同
@@ -132,4 +218,8 @@ EOF
 https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt 。
 默认情景模式选择 直接连接，规则列表规则 的情景模式则选 SS即可。
 
-> [参考链接](https://aitanlu.com/ubuntu-shadowsocks-ke-hu-duan-pei-zhi.html)
+详细的图文设置， [请猛击我](https://aitanlu.com/ubuntu-shadowsocks-ke-hu-duan-pei-zhi.html)
+
+# 尾巴
+
+关于加密算法这块，我还特意找了好些文章来学习，原来还有新的 *chacha20* 算法，ss默认推荐的算法是 *aes-256-cfb* ，对 *rc4-md5* 算法普遍认为安全性太差，虽然效率上比较占优势。我在 *ea6300 v1* 路由器上，选择了默认算法，也没见效率有多低，待我有空测测观看 *youtube 1080p* 视频时看看如何。
