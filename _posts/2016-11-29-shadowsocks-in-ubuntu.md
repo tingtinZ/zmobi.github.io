@@ -21,8 +21,9 @@ VPS服务器我选的是 *ubuntu* ，平时也在用，怎么熟手怎么来吧�
 # 借助的是python来具体实现的
 sudo apt update
 sudo apt install python-pip
-sudo apt install shadowsocks
-sudo apt install python–m2crypto
+sudo pip install easy_setuptools
+sudo pip install shadowsocks
+sudo apt install python-m2crypto
 ```
 
 ## 运行
