@@ -32,7 +32,7 @@ sudo apt-get install ruby ruby-dev
 sudo apt-get install nodejs
 
 # 安装make gcc gcc+ ，安装jekyll需要使用
-sudo apt-get install make gcc gcc+
+sudo apt-get install make gcc gcc+ build-essential
 
 # 安装jekyll
 # 会自动安装liquid，kramdown, yaml, sass和rouge
