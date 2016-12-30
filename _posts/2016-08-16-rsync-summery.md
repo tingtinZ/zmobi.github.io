@@ -136,6 +136,25 @@ Stop_Time=$(date +"%Y-%m-%d_%H:%M:%S")
 echo "rsync stop ${Stop_Time} ${IP}"  >> ${log_file}
 ```
 
+## Rsync多个目录同步
+
+```shell
+# 方式一: 写多次咯
+rsync -avh --exclude=xxx --exclude=xxx ip:/sou_dir des_dir
+
+# 方式二：写到一个文件
+rsync -avh --exclude-from='exclude.list' sou_dir des_dir
+## exclude.list 文件内容为：
+dir1
+dir2
+dir3
+.dir4
+
+# 方式三：用{}
+rsync -avh --exclude={dir1,dir2} sou_dir des_dir
+```
+
+
 
 > 参考1 ：[rsync详解网友资料](http://www.cnblogs.com/itech/archive/2009/08/10/1542945.html)
 >
